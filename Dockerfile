@@ -54,6 +54,6 @@ RUN mkdir -p /opt/tritonserver/backends/ctranslate2 && cp libtriton_ctranslate2.
 WORKDIR /opt/tritonserver/ctranslate-triton-backend/examples/model_repo
 RUN pip install torch sentencepiece
 RUN ct2-transformers-converter --model Helsinki-NLP/opus-mt-en-de --output_dir Helsinki-NLP_opus-mt-en-de/1/model
-RUN export CUDA_VISIBLE_DEVICES=0
-RUN export export LD_PRELOAD=/opt/intel/oneapi/compiler/2023.2.0/linux/compiler/lib/intel64_lin/libiomp5.so
+ENV CUDA_VISIBLE_DEVICES 0
+ENV LD_PRELOAD /opt/intel/oneapi/compiler/2023.2.0/linux/compiler/lib/intel64_lin/libiomp5.so
 #RUN tritonserver --model-repository /opt/tritonserver/ctranslate-triton-backend/examples/model_repo &
