@@ -43,7 +43,7 @@ RUN pip install dist/*.whl
 
 
 # build ctranslate-triton-backend
-WORKDIR /opt/tritonserver/ctranslate-triton-backend/src/ctranslate-triton-backend/build
+WORKDIR /opt/tritonserver/ctranslate-triton-backend/src/ctranslate2_triton_backend/build
 RUN export BACKEND_INSTALL_DIR=$(pwd)/install
 RUN cmake .. -DCMAKE_BUILD_TYPE=Release -DTRITON_ENABLE_GPU=1 -DCMAKE_INSTALL_PREFIX=$BACKEND_INSTALL_DIR
 RUN make install
